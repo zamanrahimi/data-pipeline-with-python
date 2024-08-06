@@ -1,6 +1,7 @@
-# data_pipeline.py
 import requests
 import pandas as pd
+import boto3
+from io import StringIO
 
 def fetch_data(api_url):
     response = requests.get(api_url)
@@ -8,17 +9,20 @@ def fetch_data(api_url):
     return response.json()
 
 def process_data(data):
-    # Example processing: converting JSON to DataFrame
     df = pd.DataFrame(data)
     return df
 
-def save_data(df, file_path):
-    df.to_csv(file_path, index=False)
+def save_data_to_s3(df, bucket_name, file_name):
+    csv_buffer = StringIO()
+    df.to_csv(csv_buffer, index=False)
+    s3_resource = boto3.resource('s3')
+    s3_resource.Object(bucket_name, file_name).put(Body=csv_buffer.getvalue())
 
 if __name__ == "__main__":
     API_URL = "https://jsonplaceholder.typicode.com/users"
-    FILE_PATH = "data.csv"
+    BUCKET_NAME = "github-data-storage"
+    FILE_NAME = "data.csv"
 
     data = fetch_data(API_URL)
     processed_data = process_data(data)
-    save_data(processed_data, FILE_PATH)
+    save_data_to_s3(processed_data, BUCKET_NAME, FILE_NAME)
