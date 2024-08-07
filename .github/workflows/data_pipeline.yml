@@ -2,11 +2,13 @@
 name: Data Pipeline
 
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '1 2 * * *' # Runs every 5 minutes
+  workflow_dispatch:
+    
+  # push:
+  #   branches:
+  #     - main
+  # schedule:
+  #   - cron: '1 2 * * *' # Runs every 5 minutes
 
 jobs:
   run-data-pipeline:
