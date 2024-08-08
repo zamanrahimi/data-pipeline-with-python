@@ -5,12 +5,18 @@ on:
 
 jobs:
   run-data-pipeline:
+
+    # Runner
     runs-on: ubuntu-latest
 
+    # Define the steps 
     steps:
+
+    # Repository checkout
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    # Python 
     - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
@@ -19,6 +25,7 @@ jobs:
     - name: Check Python version
       run: python --version
 
+    # Dependencies 
     - name: Create venv and install dependencies
       run: |
         python -m venv venv_pipeline
@@ -26,6 +33,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+
+    # AWS
+    - name: Check AWS CLI version
+      run: aws --version
     - name: Configure AWS credentials
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -35,6 +46,7 @@ jobs:
         aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
         aws configure set default.region us-east-1
 
+    # main: running the pipeline
     - name: Run data pipeline
       run: |
         source venv_pipeline/bin/activate
