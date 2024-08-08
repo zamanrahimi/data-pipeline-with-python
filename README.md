@@ -4,8 +4,10 @@
 - git clone https://github.com/zamanrahimi/data-pipeline-with-python.git
 
 2. activate the virtual environment
-mac/linux: source venv/bin/activate
-windows: venv\Scripts\activate
+- create: python -m venv venv_pipeline
+- activiate:
+mac/linux: source venv_pipeline/bin/activate
+windows: venv_pipeline\Scripts\activate
 
 3. install the module requirements
 pip install -r requirements.txt
