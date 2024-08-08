@@ -21,15 +21,15 @@ jobs:
 
     - name: Create and Activate Virtual Environment
       run: |
-        python3 -m venv venv
-        echo "Created virtual environment"
-        ls -la
-        echo "Listing venv directory"
-        ls -la venv
-        echo "Listing venv/bin directory"
-        ls -la venv/bin
-        source venv/bin/activate
-        echo "Activated virtual environment"
+        # python3 -m venv venv
+        # echo "Created virtual environment"
+        # ls -la
+        # echo "Listing venv directory"
+        # ls -la venv
+        # echo "Listing venv/bin directory"
+        # ls -la venv/bin
+        # source venv/bin/activate
+        # echo "Activated virtual environment"
         python --version
         python -m pip install --upgrade pip
         pip install -r requirements.txt
@@ -45,5 +45,5 @@ jobs:
 
     - name: Run data pipeline
       run: |
-        source venv/bin/activate
+        # source venv/bin/activate
         python pipeline/data_pipeline.py
