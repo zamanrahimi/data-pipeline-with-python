@@ -27,6 +27,10 @@ jobs:
         python -m venv venv
         echo "Created virtual environment"
         ls -la
+        echo "Listing venv directory"
+        ls -la venv
+        echo "Listing venv/bin directory"
+        ls -la venv/bin
         source venv/bin/activate
         echo "Activated virtual environment"
         python -m pip install --upgrade pip
