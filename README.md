@@ -4,7 +4,7 @@
     - Overall; this is module is creating data piple. steps including
       data collection, cleaning, transformation and loading / storing into AWS S3
       is defined inside pipeline folder.
-      ![Alt text](assets/pipeline1.png)
+![Alt text](assets/pipeline1.png)
 ## Folder structure
     - .github/workflows: inside this folder/ directory, github actions pipeline is defined.
     - pipeline: this is the mean module code directory. you can define all the pipeline process inside this directory
