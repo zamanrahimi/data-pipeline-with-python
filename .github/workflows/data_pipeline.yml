@@ -19,7 +19,7 @@ jobs:
     - name: Check Python version
       run: python --version
 
-    - name: Create and Activate Virtual Environment
+    - name: Create venv and install dependencies
       run: |
         python -m venv venv_pipeline
         source venv_pipeline/bin/activate
