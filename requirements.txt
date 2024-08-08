@@ -1,4 +1,4 @@
-# requirements.txt
-pandas
-requests
-boto3
+pandas==1.5.3
+requests==2.31.0
+boto3==1.28.16
+pre-commit==3.7.0
