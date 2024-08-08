@@ -1,4 +1,5 @@
-# How to use data pipeline moudle
+# How to use data pipeline module
+
 ## General information about the module
     - Overall; this is module is creating data piple. steps including
       data collection, cleaning, transformation and loading / storing into AWS S3
