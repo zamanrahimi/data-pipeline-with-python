@@ -3,7 +3,7 @@ name: Data Pipeline
 
 on:
   workflow_dispatch:
-    
+
   # push:
   #   branches:
   #     - main
@@ -25,6 +25,8 @@ jobs:
 
     - name: Install dependencies
       run: |
+        python -m venv venv
+        source venv/bin/activate
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
@@ -36,4 +38,5 @@ jobs:
 
     - name: Run data pipeline
       run: |
-        python data_pipeline.py
+        source venv/bin/activate
+        python pipeline/data_pipeline.py
