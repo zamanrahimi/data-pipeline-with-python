@@ -21,7 +21,7 @@ jobs:
 
     - name: Create and Activate Virtual Environment
       run: |
-        python -m venv venv
+        python -m venv venv1
         # source venv/bin/activate
         # echo "Activated virtual environment"
         python --version
