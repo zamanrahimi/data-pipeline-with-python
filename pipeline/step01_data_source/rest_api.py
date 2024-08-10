@@ -18,6 +18,7 @@ headers = {
 
 """
 ETL process
+
 """
 # fetch data
 def fetch_data(api_url):
