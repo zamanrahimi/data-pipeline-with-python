@@ -10,8 +10,21 @@ parent_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ""))
 sys.path.append(parent_directory)
 import vars
 
+headers = {
+    "Authorization": f"Token{vars.api_token}",
+    "Accept": "application/json",
+    # Add other headers as needed
+}
+
+"""
+ETL process
+"""
 # fetch data
 def fetch_data(api_url):
+    # in case your api has token, use this
+    # response = requests.get(url=api_url, headers=headers)
+
+    # This is, only has url
     response = requests.get(api_url)
     response.raise_for_status()
     return response.json()
